@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Nunito } from 'next/font/google'
 import { Inter } from "next/font/google";
 
-import Navbar from '@/app/components/navbar/Navbar';
 import ClientOnly from './components/ClientOnly';
+import Navbar from '@/app/components/navbar/Navbar';
+import Modal from '@/app/components/modals/Modal';
 import "./globals.css";
 
 export const metadata: Metadata = {
