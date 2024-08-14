@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 
 import ClientOnly from './components/ClientOnly';
 import Navbar from '@/app/components/navbar/Navbar';
-import Modal from '@/app/components/modals/Modal';
+import RegisterModal from '@/app/components/modals/RegisterModal';
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <ClientOnly>
-          <Modal title="Hello World" isOpen/>
+          <RegisterModal />
           <Navbar />
         </ClientOnly>
         {children}
