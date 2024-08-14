@@ -3,6 +3,7 @@ import { Nunito } from 'next/font/google'
 import { Inter } from "next/font/google";
 
 import Navbar from '@/app/components/navbar/Navbar';
+import ClientOnly from './components/ClientOnly';
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -24,7 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <Navbar />
+        <ClientOnly>
+          <Navbar />
+        </ClientOnly>
         {children}
       </body>
     </html>
