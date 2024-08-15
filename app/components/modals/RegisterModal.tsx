@@ -10,6 +10,7 @@ import {
   useForm
 } from "react-hook-form";
 
+import Modal from "./Modal";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 
 const RegisterModal= () => {
@@ -34,11 +35,26 @@ const RegisterModal= () => {
     setIsLoading(true);
 
     axios.post('/api/register', data)
-    //TODO : api 통신 구현
+    .then(() => {
+      registerModal.onClose();
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    .finally(() => {
+      setIsLoading(false);
+    })
   }
 
   return (
-    <div></div>
+    <Modal
+      disabled={isLoading}
+      isOpen={registerModal.isOpen}
+      title="Register"
+      actionLabel="Continue"
+      onClose={registerModal.onClose}
+      onSubmit={handleSubmit(onSubmit)}
+    />
   );
 }
 
