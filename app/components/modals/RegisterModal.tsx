@@ -10,8 +10,11 @@ import {
   useForm
 } from "react-hook-form";
 
-import Modal from "./Modal";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
+
+import Modal from "./Modal";
+import Input from "../inputs/Input";
+import Heading from "../Heading";
 
 const RegisterModal= () => {
   const registerModal = useRegisterModal();
@@ -45,6 +48,15 @@ const RegisterModal= () => {
       setIsLoading(false);
     })
   }
+
+  const bodyContent = (
+    <div className="flex flex-col gap-4">
+      <Heading />
+      <Input />
+      <Input />
+      <Input />
+    </div>
+  )
 
   return (
     <Modal
