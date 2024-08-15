@@ -9,6 +9,7 @@ import {
   SubmitHandler,
   useForm
 } from "react-hook-form";
+import { toast } from "react-hot-toast";
 
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 
@@ -39,10 +40,11 @@ const RegisterModal= () => {
 
     axios.post('/api/register', data)
     .then(() => {
+      toast.success('Registered!');
       registerModal.onClose();
     })
     .catch((error) => {
-      console.log(error);
+      toast.error(error);
     })
     .finally(() => {
       setIsLoading(false);
