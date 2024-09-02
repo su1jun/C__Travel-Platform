@@ -10,5 +10,9 @@ npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 ```
 
+```shell
+npm i -D prisma
+npx prisma init
+```
 
 
