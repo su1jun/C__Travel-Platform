@@ -13,6 +13,12 @@ npx tailwindcss init -p
 ```shell
 npm i -D prisma
 npx prisma init
+npx prisma db push
 ```
 
+```shell
+npm install next-auth @prisma/client @next-auth/prisma-adapter
+npm install bcrypt
+npm install -D @types/bcrypt
+```
 
