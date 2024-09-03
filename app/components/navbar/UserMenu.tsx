@@ -3,12 +3,21 @@
 import { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 
+import { User } from "@prisma/client"
+import { signOut } from "next-auth/react";
+
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 
-const UserMenu = () => {
+interface UserMenuProps {
+  currentUser?: User | null;
+}
+
+const UserMenu: React.FC<UserMenuProps> = ({
+  currentUser,
+}) => {
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const [isOpen, setIsOpen] = useState(false);
@@ -77,16 +86,46 @@ const UserMenu = () => {
           "
         >
           <div className="flex flex-col cursor-pointer">
+            {currentUser ? (
               <>
                 <MenuItem 
-                  onClick={loginModal.onOpen}
-                  label="Login" 
+                  label="My trips" 
+                  onClick={() => {}}
                 />
                 <MenuItem 
-                  onClick={registerModal.onOpen}
-                  label="Sign up" 
+                  label="My favorites" 
+                  onClick={() => {}}
+                />
+                <MenuItem 
+                  label="My reservations" 
+                  onClick={() => {}}
+                />
+                <MenuItem 
+                  label="My properties" 
+                  onClick={() => {}}
+                />
+                <MenuItem 
+                  label="Airbnb your home" 
+                  onClick={() => {}}
+                />
+                <hr />
+                <MenuItem 
+                  label="Logout" 
+                  onClick={() => signOut()}
                 />
               </>
+            ) : (
+              <>
+                <MenuItem 
+                  label="Login" 
+                  onClick={loginModal.onOpen}
+                />
+                <MenuItem 
+                  label="Sign up" 
+                  onClick={registerModal.onOpen}
+                />
+              </>
+            )}
           </div>
         </div>
       )}
