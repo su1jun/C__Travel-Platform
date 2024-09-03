@@ -7,6 +7,7 @@ import ToasterProvider from '@/app/providers/ToasterProvider';
 import ClientOnly from './components/ClientOnly';
 import Navbar from '@/app/components/navbar/Navbar';
 import RegisterModal from '@/app/components/modals/RegisterModal';
+import LoginModal from '@/app/components/modals/LoginModal';
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body className={font.className}>
         <ClientOnly>
           <ToasterProvider />
+          <LoginModal />
           <RegisterModal />
           <Navbar />
         </ClientOnly>
