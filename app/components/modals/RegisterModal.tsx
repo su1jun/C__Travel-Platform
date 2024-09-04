@@ -11,6 +11,7 @@ import {
 } from "react-hook-form";
 import { toast } from "react-hot-toast";
 
+import useLoginModal from "@/app/hooks/useLoginModal";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 
 import Modal from "./Modal";
@@ -21,6 +22,7 @@ import { signIn } from "next-auth/react";
 
 const RegisterModal= () => {
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
 
   const { 
