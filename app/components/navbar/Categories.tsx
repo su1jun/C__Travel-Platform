@@ -1,5 +1,6 @@
 'use client';
 
+import { usePathname, useSearchParams } from 'next/navigation';
 import { TbBeach } from 'react-icons/tb';
 import { 
   GiWindmill
@@ -7,6 +8,7 @@ import {
 
 import { MdOutlineVilla } from 'react-icons/md';
 
+import CategoryBox from "../CategoryBox";
 import Container from '../Container';
 
 export const categories = [
@@ -28,6 +30,16 @@ export const categories = [
 ]
 
 const Categories = () => {
+  const params = useSearchParams();
+  const category = params?.get('category');
+  const pathname = usePathname();
+
+  const isMainPage = pathname === '/';
+
+  if (!isMainPage) {
+    return null;
+  }
+
   return (
     <Container>
       <div
@@ -40,6 +52,14 @@ const Categories = () => {
           overflow-x-auto
         "
       >
+        {categories.map((item) => (
+            <CategoryBox 
+              key={item.label}
+              label={item.label}
+              icon={item.icon}
+              selected={category === item.label}
+            />
+          ))}
       </div>
     </Container>
   );
