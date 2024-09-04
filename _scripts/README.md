@@ -22,3 +22,8 @@ npm install bcrypt
 npm install -D @types/bcrypt
 ```
 
+```shell
+npm install query-string
+```
+
+
