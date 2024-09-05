@@ -26,6 +26,9 @@ npm install -D @types/bcrypt
 npm install query-string
 npm install world-countries
 npm install react-select
+npm install leaflet
+npm install -D @types/leaflet
+npm install react-leaflet
 ```
 
 

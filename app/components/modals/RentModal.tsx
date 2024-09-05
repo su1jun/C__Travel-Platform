@@ -50,6 +50,7 @@ const RentModal = () => {
     }
   });
 
+  const location = watch('location');
   const category = watch('category');
 
   const setCustomValue = (id: string, value: any) => {
@@ -123,8 +124,10 @@ const RentModal = () => {
           subtitle="Help guests find you!"
         />
         <CountrySelect 
+          value={location} 
           onChange={(value) => setCustomValue('location', value)} 
         />
+        <Map center={location?.latlng} />
       </div>
     );
   }
