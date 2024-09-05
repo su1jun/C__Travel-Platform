@@ -24,6 +24,8 @@ npm install -D @types/bcrypt
 
 ```shell
 npm install query-string
+npm install world-countries
+npm install react-select
 ```
 
 
