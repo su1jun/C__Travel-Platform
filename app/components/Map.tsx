@@ -35,6 +35,9 @@ const Map: React.FC<MapProps> = ({ center }) => {
           url={url}
           attribution={attribution}
         />
+        {center && (
+          <Marker position={center as L.LatLngExpression} />
+        )}
       </MapContainer>
   )
 }
