@@ -29,6 +29,7 @@ npm install react-select
 npm install leaflet
 npm install -D @types/leaflet
 npm install react-leaflet
+npm install date-fns
 ```
 
 
