@@ -30,6 +30,8 @@ npm install leaflet
 npm install -D @types/leaflet
 npm install react-leaflet
 npm install date-fns
+npm install react-date-range
+npm i -D @types/react-date-range
 ```
 
 
