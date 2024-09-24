@@ -46,6 +46,7 @@ const RegisterModal= () => {
     .then(() => {
       toast.success('Registered!');
       registerModal.onClose();
+      loginModal.onOpen();
     })
     .catch((error) => {
       toast.error(error);
@@ -125,9 +126,7 @@ const RegisterModal= () => {
               cursor-pointer 
               hover:underline
             "
-          > 
-            Log in
-          </span>
+          > Log in</span>
         </p>
       </div>
     </div>
