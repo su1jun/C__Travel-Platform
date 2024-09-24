@@ -3,11 +3,13 @@
 import { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { useRouter } from "next/navigation";
-import { SafeUser } from "@/app/types";
 import { signOut } from "next-auth/react";
+
+import { SafeUser } from "@/app/types";
 
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
+
 import useLoginModal from "@/app/hooks/useLoginModal";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useRentModal from "@/app/hooks/useRentModal";
