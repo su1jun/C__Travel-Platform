@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
-
+import { useRouter } from "next/navigation";
 import { SafeUser } from "@/app/types";
 import { signOut } from "next-auth/react";
 
@@ -19,6 +19,8 @@ interface UserMenuProps {
 const UserMenu: React.FC<UserMenuProps> = ({
   currentUser,
 }) => {
+  const router = useRouter();
+
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const rentModal = useRentModal();
@@ -100,7 +102,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
               <>
                 <MenuItem 
                   label="My trips" 
-                  onClick={() => {}}
+                  onClick={() => router.push("/trips")}
                 />
                 <MenuItem 
                   label="My favorites" 
