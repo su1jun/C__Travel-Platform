@@ -2,31 +2,30 @@
 
 import { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
-import { useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
-
-import { SafeUser } from "@/app/types";
-
-import Avatar from "../Avatar";
-import MenuItem from "./MenuItem";
+import { useRouter } from "next/navigation";
 
 import useLoginModal from "@/app/hooks/useLoginModal";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useRentModal from "@/app/hooks/useRentModal";
+import { SafeUser } from "@/app/types";
+
+import MenuItem from "./MenuItem";
+import Avatar from "../Avatar";
 
 interface UserMenuProps {
-  currentUser?: SafeUser | null;
+  currentUser?: SafeUser | null
 }
 
 const UserMenu: React.FC<UserMenuProps> = ({
-  currentUser,
+  currentUser
 }) => {
   const router = useRouter();
 
-  const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
+  const registerModal = useRegisterModal();
   const rentModal = useRentModal();
-  
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = useCallback(() => {
@@ -40,7 +39,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
 
     rentModal.onOpen();
   }, [loginModal, rentModal, currentUser]);
-  
+
   return ( 
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
@@ -62,21 +61,21 @@ const UserMenu: React.FC<UserMenuProps> = ({
           Airbnb your home
         </div>
         <div 
-          onClick={toggleOpen}
-          className="
-            p-4
-            md:py-1
-            md:px-2
-            border-[1px] 
-            border-neutral-200 
-            flex 
-            flex-row 
-            items-center 
-            gap-3 
-            rounded-full 
-            cursor-pointer 
-            hover:shadow-md 
-            transition
+        onClick={toggleOpen}
+        className="
+          p-4
+          md:py-1
+          md:px-2
+          border-[1px] 
+          border-neutral-200 
+          flex 
+          flex-row 
+          items-center 
+          gap-3 
+          rounded-full 
+          cursor-pointer 
+          hover:shadow-md 
+          transition
           "
         >
           <AiOutlineMenu />
@@ -105,15 +104,15 @@ const UserMenu: React.FC<UserMenuProps> = ({
               <>
                 <MenuItem 
                   label="My trips" 
-                  onClick={() => router.push("/trips")}
+                  onClick={() => router.push('/trips')}
                 />
                 <MenuItem 
                   label="My favorites" 
-                  onClick={() => router.push("/favorites")}
+                  onClick={() => router.push('/favorites')}
                 />
                 <MenuItem 
                   label="My reservations" 
-                  onClick={() => router.push("/reservations")}
+                  onClick={() => router.push('/reservations')}
                 />
                 <MenuItem 
                   label="My properties" 
