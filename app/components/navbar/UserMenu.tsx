@@ -26,6 +26,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const rentModal = useRentModal();
+  
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = useCallback(() => {
@@ -37,7 +38,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
       return loginModal.onOpen();
     }
 
-    // Open Rent Modal
+    rentModal.onOpen();
   }, [loginModal, rentModal, currentUser]);
   
   return ( 
@@ -116,11 +117,11 @@ const UserMenu: React.FC<UserMenuProps> = ({
                 />
                 <MenuItem 
                   label="My properties" 
-                  onClick={() => {}}
+                  onClick={() => router.push('/properties')}
                 />
                 <MenuItem 
-                  label="Airbnb my home" 
-                  onClick={rentModal.onClose}
+                  label="Airbnb your home" 
+                  onClick={rentModal.onOpen}
                 />
                 <hr />
                 <MenuItem 
